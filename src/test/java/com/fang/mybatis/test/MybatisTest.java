@@ -24,7 +24,6 @@ public class MybatisTest {
 
         int result = mapper.insertUser();
         System.out.println("结果"+result);
-        System.out.println("结果"+result);
         //提交事务
         sqlSession.commit();
         //关闭会话
