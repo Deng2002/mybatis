@@ -5,6 +5,22 @@
 <mapper namespace="com.fang.mybatis.mapper.UserMapper">
     <!--int insertUser();-->
     <insert id="insertUser">
-        insert into t_user values(null,'admin2','123456',23,'女','12345@qq.com')
+        insert into t_user values(null,'admin3','123456',23,'女','123456@qq.com')
     </insert>
+<!--    void updataUser();-->
+    <update id="updataUser">
+        update t_user set username='root',password='1111' where id = 2
+    </update>
+<!--    void deleteUser();-->
+    <delete id="deleteUser">
+        delete from  t_user where id = 4
+    </delete>
+<!--    User getUserByUsername();-->
+    <select id="getUserByUsername" resultType="com.fang.mybatis.pojo.User">
+        select * from t_user where username= #{username}
+    </select>
+    <!--checkUser-->
+    <select id="checkUser" resultType="User">
+        select * from t_user where username = '${arg0}' and password = #{arg1}
+    </select>
 </mapper>
